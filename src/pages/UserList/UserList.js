@@ -131,10 +131,10 @@ const UserList = () => {
             <div>
                 {/* 굳이 컴포넌트로 쪼개서 다룰 필요없이 한 덩어리(pages)로 관리 */}
                 {/* 리액트는 변한 상태를 계속 유지해야하기 때문에 onClick은 무조건 클릭이 일어나야하여 버튼에 의존되어 다른 곳에서 값을 가져오지 못하기 때문에 onChange로 입력 될 때마다 값을 바꿔서 상태 유지*/}
-                <input type="text" onKeyUp={keyupHandler} onChange={inputHandler} placeholder='username' name='username' ref={inputRefs[0]}/>
-                <input type="text" onKeyUp={keyupHandler} onChange={inputHandler} placeholder='password' name='password' ref={inputRefs[1]}/>
-                <input type="text" onKeyUp={keyupHandler} onChange={inputHandler} placeholder='name' name='name' ref={inputRefs[2]}/>
-                <input type="text" onKeyUp={keyupHandler} onChange={inputHandler} placeholder='email' name='email' ref={inputRefs[3]}/>
+                <input css={S.Input} type="text" onKeyUp={keyupHandler} onChange={inputHandler} placeholder='username' name='username' ref={inputRefs[0]} defaultValue={inputs.username}/>
+                <input css={S.Input} type="text" onKeyUp={keyupHandler} onChange={inputHandler} placeholder='password' name='password' ref={inputRefs[1]} defaultValue={inputs.password}/>
+                <input css={S.Input} type="text" onKeyUp={keyupHandler} onChange={inputHandler} placeholder='name' name='name' ref={inputRefs[2]} defaultValue={inputs.name}/>
+                <input css={S.Input} type="text" onKeyUp={keyupHandler} onChange={inputHandler} placeholder='email' name='email' ref={inputRefs[3]} defaultValue={inputs.email}/>
                 <button type='button' onClick={addHandler} ref={addButtonRef}>추가</button>
             </div>
             <table css={S.Table}>
@@ -170,8 +170,7 @@ const UserList = () => {
                                     }
                                 </td>
                                 <td css={S.ThAndTd}>
-                                    <button onClick={() => onRemove(user.id)}>삭제</button>
-                                    {/* onclick안에 funtion을 넣어줘야함 onRemove(user.id)는 그냥 값임 */}
+                                    <button onClick={() => onRemove(user.id)}>삭제</button>    
                                 </td>
                             </tr>
                         );
